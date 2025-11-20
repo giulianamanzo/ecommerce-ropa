@@ -11,10 +11,12 @@ app.use(express.json());
 // Importamos las rutas
 const ventasRouter = require('./routes/ventas');
 const estadisticasRouter = require('./routes/estadisticas');
+const productosRouter = require('./routes/productos')
 
 // Asociamos las rutas
 app.use('/ventas', ventasRouter);
 app.use('/estadisticas', estadisticasRouter);
+app.use('/productos', productosRouter)
 
 // Iniciamos el servidor
 app.listen(PORT, () => {

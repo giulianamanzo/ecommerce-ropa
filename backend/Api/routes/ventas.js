@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
 
 // 👉 Obtener todas las ventas
 router.get('/', (req, res) => {
-  db.query('SELECT * FROM Ventas', (err, results) => {
+  db.query("SELECT v.id_venta, v.id_cliente, v.id_producto, v.cantidad, v.precio AS precio_registrado, v.metodo_pago, v.fecha, p.id_producto AS producto_id, p.nombre AS producto_nombre, p.precio_unitario AS producto_precio_unitario FROM Ventas v JOIN Productos p ON v.id_producto = p.id_producto;", (err, results) => {
     if (err) return res.status(500).json({ error: err.message });
     res.json(results);
   });
